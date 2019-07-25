@@ -20,20 +20,28 @@ $('#js-customer-name').html();
 $('#js-main-btn').on('click', () => {
   $('.content').hide();
   $('#js-main-content').show();
+  $('.btn').attr('disabled', false);
+  $('#js-main-btn').attr('disabled', true);
 });
 
 $('#js-orders-btn').on('click', () => {
   $('.content').hide();
   $('#js-orders-content').show();
+  $('.btn').attr('disabled', false);
+  $('#js-orders-btn').attr('disabled', true);
 });
 
 $('#js-rooms-btn').on('click', () => {
   $('.content').hide();
   $('#js-rooms-content').show();
+  $('.btn').attr('disabled', false);
+  $('#js-rooms-btn').attr('disabled', true);
 });
 
 $('#js-customer-btn').on('click', () => {
   $('.content').hide();
   $('#js-customer-content').show();
+  $('.btn').attr('disabled', false);
+  $('#js-customer-btn').attr('disabled', true);
   console.log(usersRepo);
 });

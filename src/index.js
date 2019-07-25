@@ -6,6 +6,7 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 $('#js-date').html(domUpdates.displayCurrentDate());
+$('#js-customer-name').html();
 
 $('#js-main-btn').on('click', () => {
   $('.content').hide();

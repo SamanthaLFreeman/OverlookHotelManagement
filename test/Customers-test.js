@@ -13,7 +13,12 @@ describe('Customers', () => {
     expect(customers).to.be.an.instanceof(Customers);
   });
 
-  it('should find a customer by their name', () => {
+  it.skip('should find a customer by their name', () => {
     expect(customers.findCustomer()).to.eql();
-  })
+  });
+
+  it.skip('should create a new customer', () => {
+    expect(customers.addNewCustomer()).to.eql();
+  });
+
 });

@@ -1,6 +1,6 @@
 const roomServices = [
   {
-    userID: 14,
+    userID: 1,
     date: "2019/07/29",
     food: "Rustic Concrete Sandwich",
     totalCost: 14.9
@@ -19,7 +19,7 @@ const roomServices = [
   },
   {
     userID: 8,
-    date: "2019/08/02",
+    date: "2019/08/24",
     food: "Practical Granite Sandwich",
     totalCost: 14.87
   },
@@ -67,7 +67,7 @@ const roomServices = [
   },
   {
     userID: 88,
-    date: "2019/08/11",
+    date: "2019/08/24",
     food: "Handcrafted Rubber Sandwich",
     totalCost: 22.45
   },

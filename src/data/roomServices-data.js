@@ -113,4 +113,6 @@ const roomServices = [
     food: "Generic Wooden Sandwich",
     totalCost: 10.63
   }
-]
+];
+
+export default roomServices;

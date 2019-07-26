@@ -184,7 +184,7 @@ const rooms = [
     costPerNight: 245.42
   },
   {
-    number: 24,
+    number: 41,
     roomType: "suite",
     bidet: true,
     bedSize: "queen",
@@ -192,11 +192,13 @@ const rooms = [
     costPerNight: 174.95
   },
   {
-    number: 25,
+    number: 44,
     roomType: "junior suite",
     bidet: true,
     bedSize: "queen",
     numBeds: 1,
     costPerNight: 307.49
   }
-]
+];
+
+export default rooms;

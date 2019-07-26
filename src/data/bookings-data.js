@@ -95,3 +95,5 @@ const bookings = [
     roomNumber: 32
   }
 ];
+
+export default bookings;

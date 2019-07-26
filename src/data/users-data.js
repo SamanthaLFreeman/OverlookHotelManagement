@@ -119,4 +119,6 @@ const users = [
     id: 30,
     name: "Talon Bayer"
   }
-]
+];
+
+export default users;

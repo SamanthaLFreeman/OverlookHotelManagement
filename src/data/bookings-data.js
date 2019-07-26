@@ -66,12 +66,12 @@ const bookings = [
   },
   {
     userID: 5,
-    date: "2019/09/06",
+    date: "2019/09/01",
     roomNumber: 19
   },
   {
     userID: 35,
-    date: "2019/09/06",
+    date: "2019/09/01",
     roomNumber: 13
   },
   {

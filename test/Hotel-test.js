@@ -17,19 +17,19 @@ describe('Hotel', () => {
     expect(hotel).to.be.an.instanceof(Hotel);
   });
 
-  it.skip('should store the data inside of the hotel object', () => {
+  it('should store the data inside of the hotel object', () => {
     expect(hotel.usersData.length).to.eql(30);
   });
 
-  it.skip('should calculate number of rooms available for today', () => {
-    expect(hotel.calculateAvailableRooms('2019/09/01')).to.eql(23);
+  it('should calculate number of rooms available for today', () => {
+    expect(hotel.calculateAvailableRoomsforToday('2019/08/24')).to.eql(21);
   });
 
-  it.skip('should calculate the total revenue for today', () => {
-    expect(hotel.calculateTotalRevenueToday('2019/09/01')).to.eql();
+  it('should calculate the total revenue for today', () => {
+    expect(hotel.calculateTotalRevenueToday('2019/09/01')).to.eql(744.06);
   });
 
-  it.skip('should find the percentage rooms occupied for today', () => {
-    expect(hotel.findPercentageRoomsOccupied('2019/09/01')).to.eql();
+  it('should find the percentage rooms occupied for today', () => {
+    expect(hotel.findPercentageRoomsOccupied('2019/08/24')).to.eql(16);
   })
 });

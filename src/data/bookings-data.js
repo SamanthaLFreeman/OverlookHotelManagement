@@ -1,17 +1,17 @@
 const bookings = [
   {
     userID: 4,
-    date: "2019/10/19",
+    date: "2019/08/24",
     roomNumber: 5
   },
   {
     userID: 29,
-    date: "2019/10/30",
+    date: "2019/08/24",
     roomNumber: 35
   },
   {
     userID: 9,
-    date: "2019/09/01",
+    date: "2019/08/24",
     roomNumber: 41
   },
   {
@@ -21,7 +21,7 @@ const bookings = [
   },
   {
     userID: 52,
-    date: "2019/08/16",
+    date: "2019/08/28",
     roomNumber: 23
   },
   {
@@ -31,7 +31,7 @@ const bookings = [
   },
   {
     userID: 93,
-    date: "2019/10/29",
+    date: "2019/09/05",
     roomNumber: 34
   },
   {
@@ -41,7 +41,7 @@ const bookings = [
   },
   {
     userID: 18,
-    date: "2019/09/26",
+    date: "2019/08/27",
     roomNumber: 36
   },
   {
@@ -51,7 +51,7 @@ const bookings = [
   },
   {
     userID: 25,
-    date: "2019/09/01",
+    date: "2019/09/27",
     roomNumber: 44
   },
   {
@@ -61,7 +61,7 @@ const bookings = [
   },
   {
     userID: 36,
-    date: "2019/08/29",
+    date: "2019/09/29",
     roomNumber: 45
   },
   {
@@ -71,7 +71,7 @@ const bookings = [
   },
   {
     userID: 35,
-    date: "2019/08/30",
+    date: "2019/09/06",
     roomNumber: 13
   },
   {
@@ -81,7 +81,7 @@ const bookings = [
   },
   {
     userID: 87,
-    date: "2019/08/08",
+    date: "2019/07/26",
     roomNumber: 24
   },
   {
@@ -91,7 +91,7 @@ const bookings = [
   },
   {
     userID: 21,
-    date: "2019/09/04",
+    date: "2019/08/24",
     roomNumber: 32
   }
 ];

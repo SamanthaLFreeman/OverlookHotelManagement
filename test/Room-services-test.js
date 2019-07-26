@@ -14,15 +14,15 @@ describe('Roomservices', () => {
   });
 
   it.skip('should find all orders for a specific date', () => {
-    expect(roomServices.findAllOrders('')).to.eql();
+    expect(roomServices.findAllOrders('2019/08/24').length).to.eql(3);
   });
 
   it.skip('should find all orders for a specific customer', () => {
-    expect(roomServices.createReceiptForCustomer('')).to.eql();
+    expect(roomServices.createReceiptForCustomer('Matilde Larson').length).to.eql(1);
   });
 
   it.skip('should find list of available food options and prices', () => {
-    expect(roomServices.filterSandwiches()).to.eql();
+    expect(roomServices.filterSandwiches().length).to.eql(19);
   })
 
 });

@@ -14,7 +14,7 @@ describe('Customers', () => {
   });
 
   it.skip('should find a customer by their name', () => {
-    expect(customers.findCustomer()).to.eql();
+    expect(customers.findCustomer('Matilde Larson').id).to.eql(1);
   });
 
   it.skip('should create a new customer', () => {

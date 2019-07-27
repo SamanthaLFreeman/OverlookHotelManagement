@@ -1,5 +1,4 @@
-import Customers from "./Customers";
-import bookings from '../src/data/bookings-data';
+import Customer from "../src/Customer";
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {
@@ -7,7 +6,7 @@ class Hotel {
     this.bookingsData = bookingsData;
     this.roomServiceData = roomServiceData;
     this.roomsData = roomsData;
-    this.customers;
+    this.currentCustomer;
   }
 
   findBookedRoomsforToday(today) {
@@ -43,8 +42,21 @@ class Hotel {
     return (bookingsToday.length / this.roomsData.length) * 100;
   }
 
-  createCustomers() {
-    this.customers = new Customers(this);
+  filterCustomerData(data, id) {
+    return this[data].filter(el => el.userID === id);
+  }
+
+  createCustomer(name) {
+    let findUser = this.usersData.find(user => user.name === name);
+    let bookings = this.filterCustomerData('bookingsData', findUser.id);
+    let roomServices = this.filterCustomerData('roomServiceData', findUser.id);
+    this.currentCustomer = new Customer(findUser.name, findUser.id, bookings, roomServices);
+  }
+
+  createNewCustomer(name) {
+    let id = this.usersData.length + 1;
+    this.currentCustomer = new Customer(name, id, [], []);
+    this.usersData.push({id, name})
   }
 }
 

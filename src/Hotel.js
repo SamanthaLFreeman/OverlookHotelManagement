@@ -52,6 +52,12 @@ class Hotel {
     let roomServices = this.filterCustomerData('roomServiceData', findUser.id);
     this.currentCustomer = new Customer(findUser.name, findUser.id, bookings, roomServices);
   }
+
+  createNewCustomer(name) {
+    let id = this.usersData.length + 1;
+    this.currentCustomer = new Customer(name, id, [], []);
+    this.usersData.push({id, name})
+  }
 }
 
 export default Hotel;

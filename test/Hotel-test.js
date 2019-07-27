@@ -40,4 +40,9 @@ describe('Hotel', () => {
     hotel.createCustomer('Brook Christiansen');
     expect(hotel.currentCustomer).to.be.an.instanceOf(Customer);
   })
+
+  it('should add a new customer to the users data', () => {
+    hotel.createNewCustomer('Samantha Freeman')
+    expect(hotel.usersData.length).to.eql(31);
+  })
 });

@@ -65,7 +65,7 @@ $('#js-rooms-btn').on('click', () => {
   $('#js-rooms-btn').attr('disabled', true);
 });
 
-$('#js-customer-btn').on('click', (e) => {
+$('#js-customer-btn').on('click', () => {
   $('.content').hide();
   $('#js-customer-content').show();
   $('.btn').attr('disabled', false);
@@ -87,10 +87,15 @@ $('#js-input-customer-existing').on('input', () => {
 
 $('#js-customers-list').on('click', (e) => {
   let pickedCustomer = e.target;
+  let foundName = $(`#${pickedCustomer.id}`).html()
   domUpdates.clickOnUser(pickedCustomer);
+  hotel.createCustomer(foundName);
 })
 
-$('#js-existing-customer-btn').on('click', (e) => {
+$('#js-new-customer-btn').on('click', (e) => {
   e.preventDefault();
-
+  let newName = $('#js-input-customer-new').val();
+  hotel.createNewCustomer(newName);
+  $('#js-customer-name').html(newName);
+  $('#js-input-customer-new').val('');
 })

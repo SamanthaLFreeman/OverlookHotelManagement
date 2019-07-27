@@ -1,9 +1,9 @@
 class Customer {
-  constructor(name, id, bookings, roomService) {
+  constructor(name, id, bookings, roomServices) {
     this.name = name;
     this.id = id;
     this.bookings = bookings;
-    this.roomService = roomService;
+    this.roomServices = roomServices;
   }
 
   // findCustomer(custName) {

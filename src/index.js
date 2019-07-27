@@ -21,11 +21,6 @@ import users from '../src/data/users-data';
 //   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
 //   .catch(error => console.log(error))
 
-// Promise.all([users, bookings, roomServices, rooms])
-//   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
-//   .catch(error => console.log(error))
-
-
 import $ from 'jquery';
 import domUpdates from './dom-updates';
 import Hotel from '../src/Hotel'
@@ -70,9 +65,32 @@ $('#js-rooms-btn').on('click', () => {
   $('#js-rooms-btn').attr('disabled', true);
 });
 
-$('#js-customer-btn').on('click', () => {
+$('#js-customer-btn').on('click', (e) => {
   $('.content').hide();
   $('#js-customer-content').show();
   $('.btn').attr('disabled', false);
   $('#js-customer-btn').attr('disabled', true);
+  domUpdates.addCustomersList(hotel.usersData);
 });
+
+$('#js-input-customer-existing').on('input', () => {
+  let searchTextField = $('#js-input-customer-existing').val().toLowerCase();
+  let customers = hotel.usersData;
+  let results = customers.filter(customer => {
+    return customer.name.toLowerCase().includes(searchTextField);
+  })
+  $('.customers-list').html('');
+  results.forEach(customer => {
+    domUpdates.addFoundCustomer(customer);
+  })
+});
+
+$('#js-customers-list').on('click', (e) => {
+  let pickedCustomer = e.target;
+  domUpdates.clickOnUser(pickedCustomer);
+})
+
+$('#js-existing-customer-btn').on('click', (e) => {
+  e.preventDefault();
+
+})

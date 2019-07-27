@@ -20,17 +20,4 @@ describe('Customer', () => {
     expect(customer).to.be.an.instanceof(Customer);
   });
 
-  // it('should find a customer by their name', () => {
-  //   expect(customer.findCustomer('Matilde Larson').id).to.eql(1);
-  // });
-
-  // it('should create a list of all users by name', () => {
-  //   expect(customer.findAllCustomerNames()[0]).to.eql('Matilde Larson')
-  // })
-
-  // it('should create a new customer', () => {
-  //   customer.addNewCustomer('Samantha Freeman');
-  //   expect(customer.usersData[30].id).to.eql(31);
-  // });
-
 });

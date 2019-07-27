@@ -21,7 +21,7 @@ describe('Hotel', () => {
   });
 
   it('should store the data inside of the hotel object', () => {
-    expect(hotel.usersData.length).to.eql(30);
+    expect(hotel.bookingsData.length).to.eql(19);
   });
 
   it('should calculate number of rooms available for today', () => {
@@ -29,7 +29,7 @@ describe('Hotel', () => {
   });
 
   it('should calculate the total revenue for today', () => {
-    expect(hotel.calculateTotalRevenueToday('2019/09/01')).to.eql(744.06);
+    expect(hotel.calculateTotalRevenueToday('2019/08/24')).to.eql(468.55);
   });
 
   it('should find the percentage rooms occupied for today', () => {

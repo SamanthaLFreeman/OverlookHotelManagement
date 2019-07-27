@@ -57,11 +57,10 @@ let domUpdates = {
   },
 
   clickOnUser(pickedCustomer) {
-    console.log(pickedCustomer)
     let id = pickedCustomer.id;
     let name = $(`#${id}`).html();
     $('#js-customer-name').html(name)
-  }
+  },
   
 }
 

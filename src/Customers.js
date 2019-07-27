@@ -1,16 +1,25 @@
+import Hotel from "./Hotel";
+
 class Customers {
-  constructor(usersData) {
-    this.usersData = usersData;
+  constructor(hotel) {
+    this.data = hotel.usersData;
   }
 
   findCustomer(custName) {
-    return this.usersData.find(customer => customer.name === custName);
+    return this.data.find(customer => customer.name === custName);
   }
 
   findAllCustomerNames() {
-    return this.usersData.map(customer => customer.name);
+    return this.data.map(customer => customer.name)
   }
 
+  addNewCustomer(newName) {
+    let newId = this.data.length + 1
+    return this.data.push({
+      'name': newName,
+      'id': newId
+    })
+  }
 }
 
 export default Customers;

@@ -1,13 +1,19 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Customers from '../src/Customers';
+import Hotel from "../src/Hotel";
+import rooms from '../src/data/rooms-data';
+import roomServices from '../src/data/roomServices-data';
 import users from '../src/data/users-data';
+import bookings from '../src/data/bookings-data';
 
 describe('Customers', () => {
   let customers;
+  let hotel;
 
   beforeEach(() => {
-    customers = new Customers(users);
+    hotel = new Hotel(users, bookings, roomServices, rooms);
+    customers = new Customers(hotel);
   });
 
   it('should be an instance of Users', () => {
@@ -22,8 +28,9 @@ describe('Customers', () => {
     expect(customers.findAllCustomerNames()[0]).to.eql('Matilde Larson')
   })
 
-  // it('should create a new customer', () => {
-  //   expect(customers.addNewCustomer('Samantha Freeman')).to.eql();
-  // });
+  it('should create a new customer', () => {
+    customers.addNewCustomer('Samantha Freeman');
+    expect(customers.usersData[30].id).to.eql(31);
+  });
 
 });

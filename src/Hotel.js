@@ -1,4 +1,5 @@
 import Customers from "./Customers";
+import bookings from '../src/data/bookings-data';
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {
@@ -43,7 +44,7 @@ class Hotel {
   }
 
   createCustomers() {
-    this.customers = new Customers(this.usersData, this);
+    this.customers = new Customers(this);
   }
 }
 

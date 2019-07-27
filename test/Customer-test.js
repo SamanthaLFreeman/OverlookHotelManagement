@@ -12,8 +12,11 @@ describe('Customer', () => {
   let hotel;
 
   beforeEach(() => {
-    hotel = new Hotel(users, bookings, roomServices, rooms);
-    customer = new Customer(hotel);
+    let name = 'Samantha Freeman';
+    let id = 42;
+    let bookings = [];
+    let roomServices = [];
+    customer = new Customer(name, id, bookings, roomServices);
   });
 
   it('should be an instance of Customer', () => {

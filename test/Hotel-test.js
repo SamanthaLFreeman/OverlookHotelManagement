@@ -5,6 +5,9 @@ import bookings from '../src/data/bookings-data';
 import rooms from '../src/data/rooms-data';
 import roomServices from '../src/data/roomServices-data';
 import users from '../src/data/users-data';
+import Customers from "../src/Customers";
+
+
 
 describe('Hotel', () => {
   let hotel;
@@ -31,5 +34,10 @@ describe('Hotel', () => {
 
   it('should find the percentage rooms occupied for today', () => {
     expect(hotel.findPercentageRoomsOccupied('2019/08/24')).to.eql(16);
+  })
+
+  it('should create a new instance of Customers', () => {
+    hotel.createCustomers();
+    expect(hotel.customers).to.be.an.instanceOf(Customers);
   })
 });

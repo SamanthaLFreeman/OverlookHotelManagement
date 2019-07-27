@@ -1,3 +1,4 @@
+import Customers from "./Customers";
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {
@@ -5,6 +6,7 @@ class Hotel {
     this.bookingsData = bookingsData;
     this.roomServiceData = roomServiceData;
     this.roomsData = roomsData;
+    this.customers;
   }
 
   findBookedRoomsforToday(today) {
@@ -38,6 +40,10 @@ class Hotel {
   findPercentageRoomsOccupied(today) {
     let bookingsToday = this.findBookedRoomsforToday(today);
     return (bookingsToday.length / this.roomsData.length) * 100;
+  }
+
+  createCustomers() {
+    this.customers = new Customers(this.usersData, this);
   }
 }
 

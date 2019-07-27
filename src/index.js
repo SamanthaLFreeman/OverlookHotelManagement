@@ -21,9 +21,9 @@ import users from '../src/data/users-data';
 //   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
 //   .catch(error => console.log(error))
 
-Promise.all([users, bookings, roomServices, rooms])
-  .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
-  .catch(error => console.log(error))
+// Promise.all([users, bookings, roomServices, rooms])
+//   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
+//   .catch(error => console.log(error))
 
 
 import $ from 'jquery';
@@ -38,6 +38,7 @@ $('#js-date').html(domUpdates.displayCurrentDate());
 $('#js-customer-name').html();
 
 $('#js-username-btn').on('click', (e) => {
+  hotel = new Hotel(users, bookings, roomServices, rooms)
   e.preventDefault();
   $('#js-login').hide();
   $('#js-main-content').show();

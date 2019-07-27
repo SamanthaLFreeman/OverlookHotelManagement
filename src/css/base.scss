@@ -4,3 +4,8 @@ $primary-background: aliceblue;
 body {
   background-color: $primary-background;
 }
+
+.customers-list {
+  height: 100px;
+  overflow: scroll;
+}

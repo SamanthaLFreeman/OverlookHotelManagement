@@ -1,21 +1,25 @@
 let hotel;
 
-let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-  .then(response => response.json())
+// let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+//   .then(response => response.json())
 
-let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-  .then(response => response.json())
+// let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+//   .then(response => response.json())
 
-let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-  .then(response => response.json())
+// let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+//   .then(response => response.json())
 
-let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
-  .then(response => response.json())
+// let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+//   .then(response => response.json())
 
-Promise.all([usersData, bookingsData, roomServiceData, roomsData])
-  .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
-  .catch(error => console.log(error))
+import bookings from '../src/data/bookings-data';
+import rooms from '../src/data/rooms-data';
+import roomServices from '../src/data/roomServices-data';
+import users from '../src/data/users-data';
 
+// Promise.all([usersData, bookingsData, roomServiceData, roomsData])
+//   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
+//   .catch(error => console.log(error))
 
 import $ from 'jquery';
 import domUpdates from './dom-updates';
@@ -29,6 +33,7 @@ $('#js-date').html(domUpdates.displayCurrentDate());
 $('#js-customer-name').html();
 
 $('#js-username-btn').on('click', (e) => {
+  hotel = new Hotel(users, bookings, roomServices, rooms)
   e.preventDefault();
   $('#js-login').hide();
   $('#js-main-content').show();
@@ -60,9 +65,32 @@ $('#js-rooms-btn').on('click', () => {
   $('#js-rooms-btn').attr('disabled', true);
 });
 
-$('#js-customer-btn').on('click', () => {
+$('#js-customer-btn').on('click', (e) => {
   $('.content').hide();
   $('#js-customer-content').show();
   $('.btn').attr('disabled', false);
   $('#js-customer-btn').attr('disabled', true);
+  domUpdates.addCustomersList(hotel.usersData);
 });
+
+$('#js-input-customer-existing').on('input', () => {
+  let searchTextField = $('#js-input-customer-existing').val().toLowerCase();
+  let customers = hotel.usersData;
+  let results = customers.filter(customer => {
+    return customer.name.toLowerCase().includes(searchTextField);
+  })
+  $('.customers-list').html('');
+  results.forEach(customer => {
+    domUpdates.addFoundCustomer(customer);
+  })
+});
+
+$('#js-customers-list').on('click', (e) => {
+  let pickedCustomer = e.target;
+  domUpdates.clickOnUser(pickedCustomer);
+})
+
+$('#js-existing-customer-btn').on('click', (e) => {
+  e.preventDefault();
+
+})

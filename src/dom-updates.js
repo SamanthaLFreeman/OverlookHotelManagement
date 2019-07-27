@@ -46,6 +46,22 @@ let domUpdates = {
     return displayDate;
   },
 
+  addCustomersList(customers) {
+    customers.forEach(customer => {
+      $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
+    })
+  },
+
+  addFoundCustomer(customer) {
+    $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
+  },
+
+  clickOnUser(pickedCustomer) {
+    let id = pickedCustomer.id;
+    let name = $(`#${id}`).html();
+    $('#js-customer-name').html(name)
+  },
+  
 }
 
 export default domUpdates;

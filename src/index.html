@@ -12,13 +12,13 @@
     <main>
       <nav>
         <button class="btn" id="js-main-btn" disabled>Main</button>
-        <button class="btn" id="js-orders-btn">Orders</button>
-        <button class="btn" id="js-rooms-btn">Rooms</button>
-        <button class="btn" id="js-customer-btn">Customer</button>
+        <button class="btn" id="js-orders-btn" disabled>Orders</button>
+        <button class="btn" id="js-rooms-btn" disabled>Rooms</button>
+        <button class="btn" id="js-customer-btn" disabled>Customer</button>
       </nav>
       <form class="login" id="js-login">
         <label>
-          Input Username
+          Username
           <input
             type="text"
             class="input-username"
@@ -26,11 +26,24 @@
             for="employee-username"
           />
         </label>
+        <label>
+          Password
+          <input
+            type="password"
+            class="input-password"
+            id="js-input-password"
+            for="employee-password"
+          />
+        </label>
         <button class="username-btn" id="js-username-btn">
           Submit
         </button>
       </form>
-      <section class="content" id="js-main-content">main</section>
+      <section class="content" id="js-main-content" style="display: none">
+        <p>Rooms available today: <span id="js-room-avail"></span></p>
+        <p>Total revenue for today: $<span id="js-today-total-rev"></span></p>
+        <p><span id="js-percent-occup"></span>% rooms occupied today</p>
+      </section>
       <section class="content" id="js-orders-content" style="display: none">
         orders
       </section>

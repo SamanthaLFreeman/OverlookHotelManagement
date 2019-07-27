@@ -1,4 +1,3 @@
-import bookings from "./data/bookings-data";
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {

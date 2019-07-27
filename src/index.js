@@ -1,18 +1,27 @@
 let hotel;
 
-let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-  .then(response => response.json())
+// let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+//   .then(response => response.json())
 
-let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-  .then(response => response.json())
+// let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+//   .then(response => response.json())
 
-let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-  .then(response => response.json())
+// let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+//   .then(response => response.json())
 
-let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
-  .then(response => response.json())
+// let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+//   .then(response => response.json())
 
-Promise.all([usersData, bookingsData, roomServiceData, roomsData])
+import bookings from '../src/data/bookings-data';
+import rooms from '../src/data/rooms-data';
+import roomServices from '../src/data/roomServices-data';
+import users from '../src/data/users-data';
+
+// Promise.all([usersData, bookingsData, roomServiceData, roomsData])
+//   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
+//   .catch(error => console.log(error))
+
+Promise.all([users, bookings, roomServices, rooms])
   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
   .catch(error => console.log(error))
 

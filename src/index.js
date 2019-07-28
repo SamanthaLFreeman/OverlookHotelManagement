@@ -62,7 +62,6 @@ $('#js-orders-btn').on('click', () => {
   let ordersByDate = hotel.roomServices.findAllOrders(today);
   domUpdates.addRowsForAllOrders(ordersByDate);
   domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
-  console.log(hotel.currentCustomer.name)
   domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
 });
 

@@ -8,7 +8,18 @@ describe('Customer', () => {
   beforeEach(() => {
     let name = 'Samantha Freeman';
     let id = 42;
-    let bookings = [];
+    let bookings = [
+      {
+        userID: 42,
+        date: "2019/08/24",
+        roomNumber: 41
+      },
+      {
+        userID: 42,
+        date: "2019/08/28",
+        roomNumber: 13
+      }
+    ];
     let roomServices = [
       {
         userID: 42,
@@ -42,7 +53,8 @@ describe('Customer', () => {
     expect(customer.totalSpentOnRoomServices()).to.eql(20.4);
   });
 
-  it.skip('should find all bookings for a specific customer', () => {
-    expect(rooms.findAllBookingsForCustomer('Brook Christiansen').length).to.eql(1);
+  it('should sort Bookings by date', () => {
+    expect(customer.sortDateBookings()[0].date).to.eql("2019/08/24");
   });
+
 });

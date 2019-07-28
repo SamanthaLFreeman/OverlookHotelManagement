@@ -9,7 +9,7 @@ class Customer {
   sortDateRoomServices() {
     return this.roomServices.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
-    });
+    })
   }
 
   totalSpentOnRoomServices() {
@@ -17,6 +17,12 @@ class Customer {
       sum += roomService.totalCost
       return sum;
     }, 0)
+  }
+
+  sortDateBookings() {
+    return this.bookings.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
   }
 }
 

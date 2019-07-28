@@ -12,6 +12,12 @@ class Customer {
     });
   }
 
+  totalSpentOnRoomServices() {
+    return this.roomServices.reduce((sum, roomService) => {
+      sum += roomService.totalCost
+      return sum;
+    }, 0)
+  }
 }
 
 export default Customer;

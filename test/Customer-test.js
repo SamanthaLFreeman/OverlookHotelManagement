@@ -31,10 +31,14 @@ describe('Customer', () => {
   });
 
   it('should find all orders for the customer', () => {
-    expect(customer.roomServices.length).to.eql(2)
+    expect(customer.roomServices.length).to.eql(2);
   });
 
   it('should sort Room Services by date', () => {
     expect(customer.sortDateRoomServices()[0].date).to.eql("2019/08/24");
+  });
+
+  it('should calculate total spent on Room Services', () => {
+    expect(customer.totalSpentOnRoomServices()).to.eql(20.4);
   });
 });

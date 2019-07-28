@@ -52,6 +52,7 @@ $('#js-main-btn').on('click', () => {
 });
 
 $('#js-orders-btn').on('click', () => {
+  domUpdates.checkOrdersForCustomer();  
   $('.content').hide();
   $('#js-orders-content').show();
   $('.btn').attr('disabled', false);

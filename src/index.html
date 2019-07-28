@@ -45,7 +45,26 @@
         <p><span id="js-percent-occup"></span>% rooms occupied today</p>
       </section>
       <section class="content" id="js-orders-content" style="display: none">
-        orders
+        <div class="orders-all">
+          <label>
+            Date
+            <input type="text" class="input-orders-date" id="js-input-orders-date" for="update-date-orders" />
+          </label>
+          <button class="orders-date-btn" id="js-orders-date-btn">
+            Submit
+          </button>
+          <table class="all-orders-table">
+              <tr>
+                <th colspan="2">Date</th>
+              </tr>
+              <tr>
+                <td>Food</td>
+                <td>Total</td>
+              </tr>
+              <tbody id="js-all-orders-table">
+              </tbody>
+          </table>
+        </div>
       </section>
       <section class="content" id="js-rooms-content" style="display: none">
         rooms

@@ -56,6 +56,17 @@ $('#js-orders-btn').on('click', () => {
   $('#js-orders-content').show();
   $('.btn').attr('disabled', false);
   $('#js-orders-btn').attr('disabled', true);
+  hotel.createRoomServices();
+  let ordersByDate = hotel.roomServices.findAllOrders('2019/08/24')
+  domUpdates.addRowsForAllOrders(ordersByDate);
+});
+
+$('#js-orders-date-btn').on('click', () => {
+  let date = $('#js-input-orders-date').val();
+  $('#js-all-orders-table').html('')
+  hotel.createRoomServices();
+  let ordersByDate = hotel.roomServices.findAllOrders(date);
+  domUpdates.addRowsForAllOrders(ordersByDate);
 });
 
 $('#js-rooms-btn').on('click', () => {
@@ -90,7 +101,7 @@ $('#js-customers-list').on('click', (e) => {
   let foundName = $(`#${pickedCustomer.id}`).html()
   domUpdates.clickOnUser(pickedCustomer);
   hotel.createCustomer(foundName);
-})
+});
 
 $('#js-new-customer-btn').on('click', (e) => {
   e.preventDefault();
@@ -98,4 +109,4 @@ $('#js-new-customer-btn').on('click', (e) => {
   hotel.createNewCustomer(newName);
   $('#js-customer-name').html(newName);
   $('#js-input-customer-new').val('');
-})
+});

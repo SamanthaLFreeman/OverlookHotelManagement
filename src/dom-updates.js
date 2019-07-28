@@ -47,6 +47,7 @@ let domUpdates = {
   },
 
   addCustomersList(customers) {
+    $('.customers-list').html('');
     customers.forEach(customer => {
       $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
     })
@@ -72,6 +73,17 @@ let domUpdates = {
     })
   },
 
+  addRowsForCustomerOrders(roomServiceData) {
+    roomServiceData.forEach(data => {
+      $('#js-customer-orders-table').append(
+        `<tr>
+          <td>${data.date}</td>
+          <td>${data.food}</td>
+          <td>$${data.totalCost}</td>
+        </tr>`)
+    })
+  },
+
   checkForCustomerOrAll(tabName) {
     if ($('#js-customer-name').html() === 'All Customers') {
       $(`#js-${tabName}-customer`).hide();
@@ -80,6 +92,11 @@ let domUpdates = {
       $(`#js-${tabName}-customer`).show();
       $(`#js-${tabName}-all`).hide();
     }
+  },
+
+  totalOrdersForCustomers(name, total) {
+    $('#js-customer-name-orders').html(name)
+    $('#js-orders-total').html(total)
   },
 
 }

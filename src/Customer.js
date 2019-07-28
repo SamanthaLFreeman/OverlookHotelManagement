@@ -6,6 +6,12 @@ class Customer {
     this.roomServices = roomServices;
   }
 
+  sortDateRoomServices() {
+    return this.roomServices.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
+  }
+
 }
 
 export default Customer;

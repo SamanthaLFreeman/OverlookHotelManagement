@@ -53,6 +53,7 @@ $('#js-main-btn').on('click', () => {
 
 $('#js-orders-btn').on('click', () => {
   domUpdates.checkForCustomerOrAll('orders'); 
+  $('.orders-table').html('');
   $('.content').hide();
   $('#js-orders-content').show();
   $('.btn').attr('disabled', false);
@@ -60,6 +61,7 @@ $('#js-orders-btn').on('click', () => {
   hotel.createRoomServices();
   let ordersByDate = hotel.roomServices.findAllOrders(today);
   domUpdates.addRowsForAllOrders(ordersByDate);
+  domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices())
 });
 
 $('#js-orders-date-btn').on('click', () => {

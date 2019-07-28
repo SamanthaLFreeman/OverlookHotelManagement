@@ -47,6 +47,7 @@ let domUpdates = {
   },
 
   addCustomersList(customers) {
+    $('.customers-list').html('');
     customers.forEach(customer => {
       $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
     })
@@ -67,6 +68,16 @@ let domUpdates = {
       $('#js-all-orders-table').append(
         `<tr>
           <td>${data.food}</td>
+          <td>$${data.totalCost}</td>
+        </tr>`)
+    })
+  },
+
+  addRowsForCustomerOrders(roomServiceData) {
+    roomServiceData.forEach(data => {
+      $('#js-customer-orders-table').append(
+        `<tr>
+          <td>${data.date}</td>
           <td>$${data.totalCost}</td>
         </tr>`)
     })

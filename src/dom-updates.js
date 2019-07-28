@@ -53,7 +53,7 @@ let domUpdates = {
   },
 
   addFoundCustomer(customer) {
-    $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
+    $('#js-customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
   },
 
   clickOnUser(pickedCustomer) {
@@ -62,6 +62,16 @@ let domUpdates = {
     $('#js-customer-name').html(name)
   },
   
+  addRowsForAllOrders(roomServiceData) {
+    roomServiceData.forEach(data => {
+      $('#js-all-orders-table').append(
+        `<tr>
+          <td>${data.food}</td>
+          <td>${data.totalCost}</td>
+        </tr>`)
+    })
+  }
+
 }
 
 export default domUpdates;

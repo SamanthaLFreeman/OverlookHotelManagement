@@ -1,4 +1,5 @@
 import Customer from "../src/Customer";
+import RoomServices from "./Room-services";
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {
@@ -7,6 +8,7 @@ class Hotel {
     this.roomServiceData = roomServiceData;
     this.roomsData = roomsData;
     this.currentCustomer;
+    this.roomServices;
   }
 
   findBookedRoomsforToday(today) {
@@ -57,6 +59,10 @@ class Hotel {
     let id = this.usersData.length + 1;
     this.currentCustomer = new Customer(name, id, [], []);
     this.usersData.push({id, name})
+  }
+
+  createRoomServices() {
+    this.roomServices = new RoomServices(this.roomServiceData)
   }
 }
 

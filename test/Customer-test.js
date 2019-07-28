@@ -41,4 +41,8 @@ describe('Customer', () => {
   it('should calculate total spent on Room Services', () => {
     expect(customer.totalSpentOnRoomServices()).to.eql(20.4);
   });
+
+  it.skip('should find all bookings for a specific customer', () => {
+    expect(rooms.findAllBookingsForCustomer('Brook Christiansen').length).to.eql(1);
+  });
 });

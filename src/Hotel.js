@@ -1,5 +1,6 @@
 import Customer from "../src/Customer";
 import RoomServices from "./Room-services";
+import Rooms from "./Rooms";
 
 class Hotel {
   constructor(usersData, bookingsData, roomServiceData, roomsData) {
@@ -9,6 +10,7 @@ class Hotel {
     this.roomsData = roomsData;
     this.currentCustomer;
     this.roomServices;
+    this.rooms;
   }
 
   findBookedRoomsforToday(today) {
@@ -63,6 +65,10 @@ class Hotel {
 
   createRoomServices() {
     this.roomServices = new RoomServices(this.roomServiceData)
+  }
+
+  createRooms() {
+    this.rooms = new Rooms(this.roomsData, this.bookingsData);
   }
 }
 

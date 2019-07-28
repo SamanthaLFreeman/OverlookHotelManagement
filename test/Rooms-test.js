@@ -29,12 +29,8 @@ describe('Rooms', () => {
     expect(rooms.findAllRoomTypesAvailable('2019/08/24').length).to.eql(4);
   })
 
-  it.skip('should find all bookings for a specific customer', () => {
-    expect(rooms.findAllBookingsForCustomer('Brook Christiansen').length).to.eql(1);
-  });
-
-  it.skip('should be able to make new reservations', () => {
-    expect(rooms.createNewBooking('')).to.eql();
-  })
+  // it.skip('should be able to make new reservations', () => {
+  //   expect(rooms.createNewBooking('')).to.eql();
+  // })
 
 });

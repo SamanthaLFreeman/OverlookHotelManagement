@@ -6,7 +6,7 @@ import rooms from '../src/data/rooms-data';
 import roomServices from '../src/data/roomServices-data';
 import users from '../src/data/users-data';
 import Customer from "../src/Customer";
-
+import Rooms from "../src/Rooms"
 
 
 describe('Hotel', () => {
@@ -44,5 +44,10 @@ describe('Hotel', () => {
   it('should add a new customer to the users data', () => {
     hotel.createNewCustomer('Samantha Freeman')
     expect(hotel.usersData.length).to.eql(31);
+  })
+
+  it('should create a new instance of Rooms', () => {
+    hotel.createRooms();
+    expect(hotel.rooms).to.be.an.instanceOf(Rooms);
   })
 });

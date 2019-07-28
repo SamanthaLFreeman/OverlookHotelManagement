@@ -57,7 +57,7 @@ $('#js-orders-btn').on('click', () => {
   $('.btn').attr('disabled', false);
   $('#js-orders-btn').attr('disabled', true);
   hotel.createRoomServices();
-  let ordersByDate = hotel.roomServices.findAllOrders('2019/08/24')
+  let ordersByDate = hotel.roomServices.findAllOrders(today)
   domUpdates.addRowsForAllOrders(ordersByDate);
 });
 

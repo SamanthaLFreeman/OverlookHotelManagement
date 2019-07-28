@@ -64,10 +64,11 @@ let domUpdates = {
   
   addRowsForAllOrders(roomServiceData) {
     roomServiceData.forEach(data => {
-      $('#js-all-orders-table').append(`<tr>
-                <td>${data.food}</td>
-                <td>${data.totalCost}</td>
-              </tr>`)
+      $('#js-all-orders-table').append(
+        `<tr>
+          <td>${data.food}</td>
+          <td>${data.totalCost}</td>
+        </tr>`)
     })
   }
 

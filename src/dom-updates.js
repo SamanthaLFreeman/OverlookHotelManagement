@@ -93,6 +93,11 @@ let domUpdates = {
     }
   },
 
+  totalOrdersForCustomers(name, total) {
+    $('#js-customer-name-orders').html(name)
+    $('#js-orders-total').html(total)
+  },
+
 }
 
 export default domUpdates;

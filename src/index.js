@@ -61,7 +61,9 @@ $('#js-orders-btn').on('click', () => {
   hotel.createRoomServices();
   let ordersByDate = hotel.roomServices.findAllOrders(today);
   domUpdates.addRowsForAllOrders(ordersByDate);
-  domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices())
+  domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
+  console.log(hotel.currentCustomer.name)
+  domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
 });
 
 $('#js-orders-date-btn').on('click', () => {

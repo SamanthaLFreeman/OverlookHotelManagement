@@ -57,13 +57,13 @@ $('#js-orders-btn').on('click', () => {
   $('.btn').attr('disabled', false);
   $('#js-orders-btn').attr('disabled', true);
   hotel.createRoomServices();
-  let ordersByDate = hotel.roomServices.findAllOrders(today)
+  let ordersByDate = hotel.roomServices.findAllOrders(today);
   domUpdates.addRowsForAllOrders(ordersByDate);
 });
 
 $('#js-orders-date-btn').on('click', () => {
   let date = $('#js-input-orders-date').val();
-  $('#js-all-orders-table').html('')
+  $('#js-all-orders-table').html('');
   hotel.createRoomServices();
   let ordersByDate = hotel.roomServices.findAllOrders(date);
   domUpdates.addRowsForAllOrders(ordersByDate);
@@ -98,7 +98,7 @@ $('#js-input-customer-existing').on('input', () => {
 
 $('#js-customers-list').on('click', (e) => {
   let pickedCustomer = e.target;
-  let foundName = $(`#${pickedCustomer.id}`).html()
+  let foundName = $(`#${pickedCustomer.id}`).html();
   domUpdates.clickOnUser(pickedCustomer);
   hotel.createCustomer(foundName);
 });

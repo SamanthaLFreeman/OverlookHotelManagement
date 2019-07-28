@@ -52,6 +52,7 @@ $('#js-main-btn').on('click', () => {
 });
 
 $('#js-orders-btn').on('click', () => {
+  domUpdates.checkForCustomerOrAll('orders'); 
   $('.content').hide();
   $('#js-orders-content').show();
   $('.btn').attr('disabled', false);
@@ -70,6 +71,7 @@ $('#js-orders-date-btn').on('click', () => {
 });
 
 $('#js-rooms-btn').on('click', () => {
+  domUpdates.checkForCustomerOrAll('rooms'); 
   $('.content').hide();
   $('#js-rooms-content').show();
   $('.btn').attr('disabled', false);

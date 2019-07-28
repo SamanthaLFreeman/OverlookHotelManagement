@@ -67,10 +67,20 @@ let domUpdates = {
       $('#js-all-orders-table').append(
         `<tr>
           <td>${data.food}</td>
-          <td>${data.totalCost}</td>
+          <td>$${data.totalCost}</td>
         </tr>`)
     })
-  }
+  },
+
+  checkForCustomerOrAll(tabName) {
+    if ($('#js-customer-name').html() === 'All Customers') {
+      $(`#js-${tabName}-customer`).hide();
+      $(`#js-${tabName}-all`).show();
+    } else {
+      $(`#js-${tabName}-customer`).show();
+      $(`#js-${tabName}-all`).hide();
+    }
+  },
 
 }
 

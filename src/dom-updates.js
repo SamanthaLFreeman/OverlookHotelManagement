@@ -78,6 +78,7 @@ let domUpdates = {
       $('#js-customer-orders-table').append(
         `<tr>
           <td>${data.date}</td>
+          <td>${data.food}</td>
           <td>$${data.totalCost}</td>
         </tr>`)
     })

@@ -72,12 +72,13 @@ let domUpdates = {
     })
   },
 
-  checkOrdersForCustomer() {
+  checkForCustomerOrAll(tabName) {
     if ($('#js-customer-name').html() === 'All Customers') {
-      $('.orders-specific-customer').hide();
+      $(`#js-${tabName}-customer`).hide();
+      $(`#js-${tabName}-all`).show();
     } else {
-      $('.orders-specific-customer').show();
-      $('.orders-all').hide();
+      $(`#js-${tabName}-customer`).show();
+      $(`#js-${tabName}-all`).hide();
     }
   },
 

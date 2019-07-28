@@ -45,7 +45,7 @@
         <p><span id="js-percent-occup"></span>% rooms occupied today</p>
       </section>
       <section class="content" id="js-orders-content" style="display: none">
-        <div class="orders-all">
+        <div class="orders-content" id="js-orders-all">
           <label>
             Date
             <input type="text" class="input-orders-date" id="js-input-orders-date" for="update-date-orders" />
@@ -65,10 +65,11 @@
               </tbody>
           </table>
         </div>
-        <div class="orders-specific-customer">specific customer orders</div>
+        <div class="orders-content" id="js-orders-customer">specific customer orders</div>
       </section>
       <section class="content" id="js-rooms-content" style="display: none">
-        rooms
+        <div class="rooms-content" id="js-rooms-all">All Customer Rooms</div>
+        <div class="rooms-content" id="js-rooms-customer">Specific customer Room</div>
       </section>
       <section class="content" id="js-customer-content" style="display: none">
         <form class="customer" id="js-customer-form">

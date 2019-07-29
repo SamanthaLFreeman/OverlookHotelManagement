@@ -152,6 +152,24 @@ let domUpdates = {
         </tr>`)
     })
   },
+
+  filterByRoomType(roomsAvail, type) {
+    return roomsAvail.filter(room => room.roomType === type)
+  },
+
+  addRowsForMenu(listOfFood) {
+    $('#js-menu-table').html('');
+    console.log(listOfFood)
+    listOfFood.forEach(data => {
+      $('#js-menu-table').append(
+        `<tr>
+          <td>${data.food}</td>
+          <td>${data.totalCost}</td>
+          <td>Add</td>
+        </tr>`)
+    })
+  },
+
 }
 
 export default domUpdates;

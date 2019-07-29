@@ -63,6 +63,7 @@ $('#js-orders-btn').on('click', () => {
   domUpdates.addRowsForAllOrders(ordersByDate);
   domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
   domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
+  domUpdates.addRowsForMenu(hotel.roomServiceData)
 });
 
 $('#js-orders-date-btn').on('click', () => {
@@ -94,10 +95,12 @@ $('#js-rooms-date-btn').on('click', () => {
   domUpdates.addRowsForAllAvailableRooms(roomsAvailData);
 });
 
-$('#js-availability-btn').on('click', () => {
+$('#js-customer-available-filter').on('click', (e) => {
+  let target = e.target.value;
   let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(today);
-  domUpdates.addRowsForCustomerAvailableRooms(roomsAvailData);
-});
+  let filteredTypes = domUpdates.filterByRoomType(roomsAvailData, target);
+  domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);
+})
 
 $('#js-customer-btn').on('click', () => {
   $('.content').hide();
@@ -131,7 +134,9 @@ $('#js-customer-available-table').on('click', (e) => {
   let num = pickedRoom.id.split('-')[1]
   let updatedData = hotel.removeRooms(num);
   console.log(updatedData)
-  domUpdates.addRowsForCustomerAvailableRooms(updatedData);
+  let target = $("input[name='roomType']:checked").val();
+  let filteredTypes = domUpdates.filterByRoomType(updatedData, target)
+  domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);
   hotel.currentCustomer.createSelectedBooking(today, num);
 })
 

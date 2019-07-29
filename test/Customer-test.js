@@ -1,9 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Customer from '../src/Customer';
+import Hotel from '../src/Hotel';
 
 describe('Customer', () => {
   let customer;
+  let hotel;
 
   beforeEach(() => {
     let name = 'Samantha Freeman';
@@ -34,7 +36,8 @@ describe('Customer', () => {
         totalCost: 5.5
       }
     ];
-    customer = new Customer(name, id, bookings, roomServices);
+    hotel = new Hotel();
+    customer = new Customer(name, id, bookings, roomServices, hotel);
   });
 
   it('should be an instance of Customer', () => {

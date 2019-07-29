@@ -24,7 +24,7 @@ describe('Rooms', () => {
   });
 
   it('should find availability based on a specific date', () => {
-    expect(rooms.findTheAvailabilityForADate('2019/08/24').length).to.eql(23);
+    expect(rooms.findTheAvailabilityForADate('2019/08/24').length).to.eql(22);
   });
 
 });

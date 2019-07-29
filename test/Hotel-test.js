@@ -50,4 +50,9 @@ describe('Hotel', () => {
     hotel.createRooms();
     expect(hotel.rooms).to.be.an.instanceOf(Rooms);
   })
+
+  it('should remove the sold room', () => {
+    hotel.removeRooms();
+    expect(hotel.roomsData.length).to.eql(24);
+  })
 });

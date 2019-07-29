@@ -35,7 +35,6 @@ class Rooms {
     return this.roomsData.filter(room => !bookingsDate.some(booking => booking.roomNumber === room.number));
   }
 
-
 }
 
 export default Rooms;

@@ -1,9 +1,12 @@
+import domUpdates from './dom-updates';
+
 class Customer {
-  constructor(name, id, bookings, roomServices) {
+  constructor(name, id, bookings, roomServices, hotel) {
     this.name = name;
     this.id = id;
     this.bookings = bookings;
     this.roomServices = roomServices;
+    this.hotelBookings = hotel.bookingsData
   }
 
   sortDateRoomServices() {
@@ -23,6 +26,25 @@ class Customer {
     return this.bookings.sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     });
+  }
+
+  updateHotelBookings(today, num) {
+    this.hotelBookings.push({
+      userID: this.id,
+      date: today,
+      roomNumber: parseInt(num)
+    })
+  }
+
+  createSelectedBooking(today, num) {
+    this.bookings.push({
+      userID: this.id,
+      date: today,
+      roomNumber: parseInt(num)
+    })
+    this.updateHotelBookings(today, num)
+    domUpdates.addRoomBill(this.bookings);
+
   }
 }
 

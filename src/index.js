@@ -128,11 +128,10 @@ $('#js-customers-list').on('click', (e) => {
 
 $('#js-customer-available-table').on('click', (e) => {
   let pickedRoom = e.target.closest('tr');
-  // $(`#${pickedRoom.id}`).hide();
   let num = pickedRoom.id.split('-')[1]
   let updatedData = hotel.removeRooms(num);
-  
-  console.log(updatedData);
+  console.log(updatedData)
+  domUpdates.addRowsForCustomerAvailableRooms(updatedData);
   hotel.currentCustomer.createSelectedBooking(today, num);
 })
 

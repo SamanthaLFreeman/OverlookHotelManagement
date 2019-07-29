@@ -54,12 +54,12 @@ class Hotel {
     let findUser = this.usersData.find(user => user.name === name);
     let bookings = this.filterCustomerData('bookingsData', findUser.id);
     let roomServices = this.filterCustomerData('roomServiceData', findUser.id);
-    this.currentCustomer = new Customer(findUser.name, findUser.id, bookings, roomServices);
+    this.currentCustomer = new Customer(findUser.name, findUser.id, bookings, roomServices, this);
   }
 
   createNewCustomer(name) {
     let id = this.usersData.length + 1;
-    this.currentCustomer = new Customer(name, id, [], []);
+    this.currentCustomer = new Customer(name, id, [], [], this);
     this.usersData.push({id, name})
   }
 

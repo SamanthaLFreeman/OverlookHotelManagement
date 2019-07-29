@@ -18,6 +18,10 @@ describe('Roomservices', () => {
     expect(roomservices.findAllOrders('2019/08/24').length).to.eql(3);
   });
 
+  it('should find all sandwiches available on a specific date', () => {
+    expect(roomservices.findAvailableSandwiches('2019/08/24').length).to.eql(16);
+  });
+
   it('should find list of available food options and prices', () => {
     expect(roomservices.filterSandwiches().length).to.eql(19);
   })

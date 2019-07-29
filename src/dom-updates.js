@@ -159,7 +159,6 @@ let domUpdates = {
 
   addRowsForMenu(listOfFood) {
     $('#js-menu-table').html('');
-    console.log(listOfFood)
     listOfFood.forEach(data => {
       $('#js-menu-table').append(
         `<tr>

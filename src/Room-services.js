@@ -4,7 +4,11 @@ class RoomServices {
   }
 
   findAllOrders(date) {
-    return this.roomServicesData.filter(roomService => roomService.date === date)
+    return this.roomServicesData.filter(roomService => roomService.date === date);
+  }
+
+  findAvailableSandwiches(date) {
+    return this.roomServicesData.filter(roomService => roomService.date !== date);
   }
 
   filterSandwiches() {

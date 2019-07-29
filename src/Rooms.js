@@ -31,10 +31,10 @@ class Rooms {
   }
 
   findTheAvailabilityForADate(date) {
-    let totalRooms = this.roomsData.length;
-    let numBooked = this.bookingsData.filter(booking => booking.date === date).length;
-    return totalRooms - numBooked;
+    let bookingsDate = this.bookingsData.filter(booking => booking.date === date);
+    return this.roomsData.filter(room => !bookingsDate.some(booking => booking.roomNumber === room.number));
   }
+
 
 }
 

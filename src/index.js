@@ -79,6 +79,16 @@ $('#js-rooms-btn').on('click', () => {
   $('#js-rooms-content').show();
   $('.btn').attr('disabled', false);
   $('#js-rooms-btn').attr('disabled', true);
+  $('#js-all-available-table').hide();
+  hotel.createRooms();
+  $('#js-popular-booking-date').html(hotel.rooms.findMostPopularDate());
+  $('#js-most-available-date').html(hotel.rooms.findMostAvailableDate())
+});
+
+$('#js-rooms-date-btn').on('click', () => {
+  let date = $('#js-input-rooms-date').val();
+  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(date)
+  domUpdates.addRowsForAllAvailableRooms(roomsAvailData);
 });
 
 $('#js-customer-btn').on('click', () => {

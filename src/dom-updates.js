@@ -99,6 +99,21 @@ let domUpdates = {
     $('#js-orders-total').html(total)
   },
 
+  addRowsForAllAvailableRooms(roomsAvailData) {
+    $('#js-all-available-table').show();
+    $('#js-available-date-table').html('');
+    roomsAvailData.forEach(data => {
+      $('#js-available-date-table').append(
+        `<tr>
+          <td>${data.number}</td>
+          <td>${data.roomType}</td>
+          <td>${data.bidet}</td>
+          <td>${data.bedSize}</td>
+          <td>${data.numBeds}</td>
+          <td>$${data.costPerNight}</td>
+        </tr>`)
+    })
+  },
 }
 
 export default domUpdates;

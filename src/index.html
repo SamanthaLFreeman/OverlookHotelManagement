@@ -49,10 +49,10 @@
           <label>
             Date
             <input type="text" class="input-orders-date" id="js-input-orders-date" for="update-date-orders" />
-          </label>
-          <button class="orders-date-btn" id="js-orders-date-btn">
+            <button class="orders-date-btn" id="js-orders-date-btn">
             Submit
-          </button>
+            </button>
+          </label>
           <table class="all-orders-table">
               <tr>
                 <th id="js-all-orders-date" colspan="2">Date</th>
@@ -82,7 +82,32 @@
         </div>
       </section>
       <section class="content" id="js-rooms-content" style="display: none">
-        <div class="rooms-content" id="js-rooms-all">All Customer Rooms</div>
+        <div class="rooms-content" id="js-rooms-all">
+          <p><span id="js-popular-booking-date"></span> most popular booking date</p>
+          <p><span id="js-most-available-date"></span> most rooms available</p>
+          <label>
+            Date
+            <input type="text" class="input-rooms-date" id="js-input-rooms-date" for="update-date-rooms" />
+            <button class="rooms-date-btn" id="js-rooms-date-btn">
+            Submit
+            </button>
+          </label>
+          <table class="all-available-table" id="js-all-available-table">
+            <tr>
+              <th id="js-available-date" colspan="6">Date</th>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>Room Type</td>
+              <td>Bidet</td>
+              <td>Bed Size</td>
+              <td>Num of Beds</td>
+              <td>Cost per Night</td>
+            </tr>
+            <tbody id="js-available-date-table">
+            </tbody>
+          </table>
+        </div>
         <div class="rooms-content" id="js-rooms-customer">Specific customer Room</div>
       </section>
       <section class="content" id="js-customer-content" style="display: none">

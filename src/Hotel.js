@@ -70,6 +70,13 @@ class Hotel {
   createRooms() {
     this.rooms = new Rooms(this.roomsData, this.bookingsData);
   }
+
+  removeRooms(num) {
+    let index = this.roomsData.findIndex(room => room.number === parseInt(num));
+    this.roomsData.splice(index, 1);
+    return this.roomsData;
+  }
+
 }
 
 export default Hotel;

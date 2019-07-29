@@ -114,6 +114,44 @@ let domUpdates = {
         </tr>`)
     })
   },
+
+  addRowsForCustomersBookings(bookingsData) {
+    $('#js-customer-bookings-table').html('');
+    bookingsData.forEach(data => {
+      $('#js-customer-bookings-table').append(
+        `<tr>
+          <td>${data.date}</td>
+          <td>${data.roomNumber}</td>
+        </tr>`)
+    })
+  },
+
+  addRowsForCustomerAvailableRooms(roomsAvailData) {
+    $('#js-customer-available-table').show();
+    $('#js-available-table').html('');
+    roomsAvailData.forEach(data => {
+      $('#js-available-table').append(
+        `<tr id=rooms-${data.number}>
+          <td id="num">${data.number}</td>
+          <td id="roomType">${data.roomType}</td>
+          <td id="bidet">${data.bidet}</td>
+          <td id="bedSize">${data.bedSize}</td>
+          <td id="numBeds">${data.numBeds}</td>
+          <td id="costPerNight">$${data.costPerNight}</td>
+        </tr>`)
+    })
+  },
+
+  addRoomBill(listOfRooms) {
+    $('#js-customer-bookings-table').html('');
+    listOfRooms.forEach(data => {
+      $('#js-customer-bookings-table').append(
+        `<tr>
+          <td>${data.date}</td>
+          <td>${data.roomNumber}</td>
+        </tr>`)
+    })
+  },
 }
 
 export default domUpdates;

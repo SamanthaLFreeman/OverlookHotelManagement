@@ -74,21 +74,29 @@ $('#js-orders-date-btn').on('click', () => {
 });
 
 $('#js-rooms-btn').on('click', () => {
-  domUpdates.checkForCustomerOrAll('rooms'); 
+  domUpdates.checkForCustomerOrAll('rooms');
   $('.content').hide();
   $('#js-rooms-content').show();
+  $('#js-customer-available-table').hide()
   $('.btn').attr('disabled', false);
   $('#js-rooms-btn').attr('disabled', true);
   $('#js-all-available-table').hide();
   hotel.createRooms();
   $('#js-popular-booking-date').html(hotel.rooms.findMostPopularDate());
-  $('#js-most-available-date').html(hotel.rooms.findMostAvailableDate())
+  $('#js-most-available-date').html(hotel.rooms.findMostAvailableDate());
+  let bookingsData = hotel.currentCustomer.sortDateBookings();
+  domUpdates.addRowsForCustomersBookings(bookingsData);
 });
 
 $('#js-rooms-date-btn').on('click', () => {
   let date = $('#js-input-rooms-date').val();
-  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(date)
+  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(date);
   domUpdates.addRowsForAllAvailableRooms(roomsAvailData);
+});
+
+$('#js-availability-btn').on('click', () => {
+  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(today);
+  domUpdates.addRowsForCustomerAvailableRooms(roomsAvailData);
 });
 
 $('#js-customer-btn').on('click', () => {
@@ -117,6 +125,16 @@ $('#js-customers-list').on('click', (e) => {
   domUpdates.clickOnUser(pickedCustomer);
   hotel.createCustomer(foundName);
 });
+
+$('#js-customer-available-table').on('click', (e) => {
+  let pickedRoom = e.target.closest('tr');
+  // $(`#${pickedRoom.id}`).hide();
+  let num = pickedRoom.id.split('-')[1]
+  let updatedData = hotel.removeRooms(num);
+  
+  console.log(updatedData);
+  hotel.currentCustomer.createSelectedBooking(today, num);
+})
 
 $('#js-new-customer-btn').on('click', (e) => {
   e.preventDefault();

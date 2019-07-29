@@ -108,7 +108,34 @@
             </tbody>
           </table>
         </div>
-        <div class="rooms-content" id="js-rooms-customer">Specific customer Room</div>
+        <div class="rooms-content" id="js-rooms-customer">
+          <table class="customer-bookings-table" >
+            <tr>
+              <td>Date</td>
+              <td>Room Number</td>
+            </tr>
+            <tbody id="js-customer-bookings-table">
+            </tbody>
+          </table>
+          <button class="availability-btn" id="js-availability-btn">
+            See Room Availability
+          </button>
+          <table class="customer-available-table" id="js-customer-available-table">
+            <tr>
+              <th id="js-customer-available-date" colspan="6">Rooms Available Today</th>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>Room Type</td>
+              <td>Bidet</td>
+              <td>Bed Size</td>
+              <td>Num of Beds</td>
+              <td>Cost per Night</td>
+            </tr>
+            <tbody id="js-available-table">
+            </tbody>
+          </table>
+        </div>
       </section>
       <section class="content" id="js-customer-content" style="display: none">
         <form class="customer" id="js-customer-form">

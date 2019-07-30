@@ -8,7 +8,6 @@ class Customer {
     this.roomServices = roomServices;
     this.hotelBookings = hotel.bookingsData;
     this.hotelRoomServices = hotel.roomServiceData;
-    console.log(this.roomServices)
   }
 
   sortDateRoomServices() {
@@ -18,10 +17,11 @@ class Customer {
   }
 
   totalSpentOnRoomServices() {
-    return this.roomServices.reduce((sum, roomService) => {
+    let total = this.roomServices.reduce((sum, roomService) => {
       sum += roomService.totalCost
       return sum
     }, 0).toFixed(2);
+    return parseFloat(total);
   }
 
   sortDateBookings() {

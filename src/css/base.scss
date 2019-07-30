@@ -1,8 +1,64 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: aliceblue;
+$primary-background: #eaeaec;
+$secondary-background: #cae6e3;
+$primary-color: #002d4b;
+$main-font: "Major Mono Display", monospace;
+$body-font: "Open Sans", sans-serif;
+$input-width: 300px;
 
 body {
   background-color: $primary-background;
+  font-family: $body-font;
+}
+
+.heading {
+  font-family: $main-font;
+}
+
+.date {
+  font-family: $main-font;
+}
+
+.customer-name {
+  font-family: $main-font;
+  color: $primary-color;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  background-color: $secondary-background;
+  border: none;
+  font-family: $main-font;
+  font-size: 1.3em;
+  padding: 5px 0;
+  width: 300px;
+  &:disabled {
+    border-bottom: 2px solid #000;
+    color: #000;
+  }
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: $input-width;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: $input-width;
+}
+
+input {
+  border: none;
+  font-size: 1.3em;
+  margin: 10px 0;
+  padding: 5px 0;
 }
 
 .customers-list {

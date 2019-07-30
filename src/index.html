@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <title>Overlook Hotel Management</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1 class="heading">Overlook Hotel Management</h1>
       <p class="date" id="js-date">Date</p>
       <p class="customer-name" id="js-customer-name">All Customers</p>
     </header>
     <main>
-      <nav>
+      <nav class="nav">
         <button class="btn" id="js-main-btn" disabled>Main</button>
         <button class="btn" id="js-orders-btn" disabled>Orders</button>
         <button class="btn" id="js-rooms-btn" disabled>Rooms</button>
@@ -35,7 +36,7 @@
             for="employee-password"
           />
         </label>
-        <button class="username-btn" id="js-username-btn">
+        <button class=" btn username-btn" id="js-username-btn">
           Submit
         </button>
       </form>
@@ -49,7 +50,7 @@
           <label>
             Date
             <input type="text" class="input-orders-date" id="js-input-orders-date" for="update-date-orders" />
-            <button class="orders-date-btn" id="js-orders-date-btn">
+            <button class="btn orders-date-btn" id="js-orders-date-btn">
             Submit
             </button>
           </label>
@@ -100,7 +101,7 @@
           <label>
             Date
             <input type="text" class="input-rooms-date" id="js-input-rooms-date" for="update-date-rooms" />
-            <button class="rooms-date-btn" id="js-rooms-date-btn">
+            <button class=" btn rooms-date-btn" id="js-rooms-date-btn">
             Submit
             </button>
           </label>
@@ -164,7 +165,7 @@
             Create Customer
             <input type="text" class="input-customer-new" id="js-input-customer-new" for="create-new-customer" />
           </label>
-          <button class="new-customer-btn" id="js-new-customer-btn">
+          <button class=" btn new-customer-btn" id="js-new-customer-btn">
             Submit
           </button>
       </section>

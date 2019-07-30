@@ -53,7 +53,7 @@ describe('Customer', () => {
   });
 
   it('should calculate total spent on Room Services', () => {
-    expect(customer.totalSpentOnRoomServices()).to.eql(20.4);
+    expect(customer.totalSpentOnRoomServices()).to.eql(20.40);
   });
 
   it('should sort Bookings by date', () => {

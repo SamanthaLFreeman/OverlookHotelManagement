@@ -145,7 +145,6 @@ $('#js-customer-available-table').on('click', (e) => {
   let pickedRoom = e.target.closest('tr');
   let num = pickedRoom.id.split('-')[1]
   let updatedData = hotel.removeRooms(num);
-  console.log(updatedData)
   let target = $("input[name='roomType']:checked").val();
   let filteredTypes = domUpdates.filterByRoomType(updatedData, target)
   domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);

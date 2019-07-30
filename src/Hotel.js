@@ -77,6 +77,12 @@ class Hotel {
     return this.roomsData;
   }
 
+  removeFood(price) {
+    let index = this.roomServiceData.findIndex(roomService => roomService.totalCost === parseFloat(price));
+    this.roomServiceData.splice(index, 1);
+    return this.roomServiceData;
+  }
+
 }
 
 export default Hotel;

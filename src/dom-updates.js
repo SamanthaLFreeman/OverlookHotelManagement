@@ -161,9 +161,9 @@ let domUpdates = {
     $('#js-menu-table').html('');
     listOfFood.forEach(data => {
       $('#js-menu-table').append(
-        `<tr>
+        `<tr id="menu-${data.food}-${data.totalCost}">
           <td>${data.food}</td>
-          <td>${data.totalCost}</td>
+          <td>$${data.totalCost}</td>
           <td>Add</td>
         </tr>`)
     })

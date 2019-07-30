@@ -153,6 +153,18 @@ let domUpdates = {
     })
   },
 
+  addRoomService(roomServiceList) {
+    $('#js-customer-orders-table').html('');
+    roomServiceList.forEach(data => {
+      $('#js-customer-orders-table').append(
+        `<tr>
+          <td>${data.date}</td>
+          <td>${data.food}</td>
+          <td>$${data.totalCost}</td>
+        </tr>`)
+    })
+  },
+
   filterByRoomType(roomsAvail, type) {
     return roomsAvail.filter(room => room.roomType === type)
   },

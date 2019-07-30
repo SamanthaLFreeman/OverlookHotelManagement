@@ -6,7 +6,9 @@ class Customer {
     this.id = id;
     this.bookings = bookings;
     this.roomServices = roomServices;
-    this.hotelBookings = hotel.bookingsData
+    this.hotelBookings = hotel.bookingsData;
+    this.hotelRoomServices = hotel.roomServiceData;
+    console.log(this.roomServices)
   }
 
   sortDateRoomServices() {
@@ -18,8 +20,8 @@ class Customer {
   totalSpentOnRoomServices() {
     return this.roomServices.reduce((sum, roomService) => {
       sum += roomService.totalCost
-      return sum;
-    }, 0)
+      return sum
+    }, 0).toFixed(2);
   }
 
   sortDateBookings() {
@@ -44,7 +46,22 @@ class Customer {
     })
     this.updateHotelBookings(today, num)
     domUpdates.addRoomBill(this.bookings);
+  }
 
+  createSelectedRoomService(today, food, price) {
+    this.roomServices.push({
+      userId: this.id,
+      date: today,
+      food,
+      totalCost: parseFloat(price)
+    })
+    this.hotelRoomServices.push({
+      userId: this.id,
+      date: today,
+      food,
+      totalCost: parseFloat(price)
+    })
+    domUpdates.addRoomService(this.roomServices)
   }
 }
 

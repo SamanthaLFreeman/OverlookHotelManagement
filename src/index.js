@@ -80,9 +80,9 @@ $('#js-menu-table').on('click', (e) => {
   let food = pickedRow.id.split('-')[1];
   let price = pickedRow.id.split('-')[2];
   let foodAvail = hotel.removeFood(price);
-  console.log(foodAvail)
   domUpdates.addRowsForMenu(foodAvail);
-  // hotel.currentCustomer.createSelectedRoomService(today, price);
+  hotel.currentCustomer.createSelectedRoomService(today, food, price);
+  domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
 })
 
 $('#js-rooms-btn').on('click', () => {

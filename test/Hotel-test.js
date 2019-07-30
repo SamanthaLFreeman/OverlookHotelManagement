@@ -55,4 +55,9 @@ describe('Hotel', () => {
     hotel.removeRooms();
     expect(hotel.roomsData.length).to.eql(24);
   })
+
+  it('should remove the sold food', () => {
+    hotel.removeFood();
+    expect(hotel.roomServiceData.length).to.eql(18);
+  })
 });

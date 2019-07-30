@@ -153,6 +153,18 @@ let domUpdates = {
     })
   },
 
+  addRoomService(roomServiceList) {
+    $('#js-customer-orders-table').html('');
+    roomServiceList.forEach(data => {
+      $('#js-customer-orders-table').append(
+        `<tr>
+          <td>${data.date}</td>
+          <td>${data.food}</td>
+          <td>$${data.totalCost}</td>
+        </tr>`)
+    })
+  },
+
   filterByRoomType(roomsAvail, type) {
     return roomsAvail.filter(room => room.roomType === type)
   },
@@ -161,9 +173,9 @@ let domUpdates = {
     $('#js-menu-table').html('');
     listOfFood.forEach(data => {
       $('#js-menu-table').append(
-        `<tr>
+        `<tr id="menu-${data.food}-${data.totalCost}">
           <td>${data.food}</td>
-          <td>${data.totalCost}</td>
+          <td>$${data.totalCost}</td>
           <td>Add</td>
         </tr>`)
     })

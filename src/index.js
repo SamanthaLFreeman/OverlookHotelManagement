@@ -53,7 +53,7 @@ $('#js-main-btn').on('click', () => {
 
 $('#js-orders-btn').on('click', () => {
   domUpdates.checkForCustomerOrAll('orders'); 
-  $('.orders-table').html('');
+  $('.all-orders-table').hide();
   $('.content').hide();
   $('#js-orders-content').show();
   $('.btn').attr('disabled', false);
@@ -63,13 +63,14 @@ $('#js-orders-btn').on('click', () => {
   domUpdates.addRowsForAllOrders(ordersByDate);
   let menuList = hotel.roomServices.findAvailableSandwiches(today);
   domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
-  domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
+  domUpdates.totalOrdersForCustomers( hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
   domUpdates.addRowsForMenu(menuList)
 });
 
 $('#js-orders-date-btn').on('click', () => {
   let date = $('#js-input-orders-date').val();
   $('#js-all-orders-table').html('');
+  $('.all-orders-table').show();
   hotel.createRoomServices();
   let ordersByDate = hotel.roomServices.findAllOrders(date);
   domUpdates.addRowsForAllOrders(ordersByDate);

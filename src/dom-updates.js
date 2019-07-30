@@ -49,7 +49,7 @@ let domUpdates = {
   addCustomersList(customers) {
     $('.customers-list').html('');
     customers.forEach(customer => {
-      $('.customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
+      $('.customers-list').append(`<li class="pointer customer-bullet" id="${customer.id}">${customer.name}</li>`)
     })
   },
 
@@ -95,8 +95,8 @@ let domUpdates = {
   },
 
   totalOrdersForCustomers(name, total) {
-    $('#js-customer-name-orders').html(name)
-    $('#js-orders-total').html(total)
+    $('#js-orders-name').html(name);
+    $('#js-orders-total').html(total);
   },
 
   addRowsForAllAvailableRooms(roomsAvailData) {
@@ -131,13 +131,14 @@ let domUpdates = {
     $('#js-available-table').html('');
     roomsAvailData.forEach(data => {
       $('#js-available-table').append(
-        `<tr id=rooms-${data.number}>
+        `<tr class="pointer" id=rooms-${data.number}>
           <td id="num">${data.number}</td>
           <td id="roomType">${data.roomType}</td>
           <td id="bidet">${data.bidet}</td>
           <td id="bedSize">${data.bedSize}</td>
           <td id="numBeds">${data.numBeds}</td>
           <td id="costPerNight">$${data.costPerNight}</td>
+          <td>Add</td>
         </tr>`)
     })
   },
@@ -173,7 +174,7 @@ let domUpdates = {
     $('#js-menu-table').html('');
     listOfFood.forEach(data => {
       $('#js-menu-table').append(
-        `<tr id="menu-${data.food}-${data.totalCost}">
+        `<tr class="pointer" id="menu-${data.food}-${data.totalCost}">
           <td>${data.food}</td>
           <td>$${data.totalCost}</td>
           <td>Add</td>

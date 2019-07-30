@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <title>Overlook Hotel Management</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1 class="heading">Overlook Hotel Management</h1>
       <p class="date" id="js-date">Date</p>
       <p class="customer-name" id="js-customer-name">All Customers</p>
     </header>
     <main>
-      <nav>
+      <nav class="nav">
         <button class="btn" id="js-main-btn" disabled>Main</button>
         <button class="btn" id="js-orders-btn" disabled>Orders</button>
         <button class="btn" id="js-rooms-btn" disabled>Rooms</button>
@@ -35,7 +36,7 @@
             for="employee-password"
           />
         </label>
-        <button class="username-btn" id="js-username-btn">
+        <button class=" btn username-btn" id="js-username-btn">
           Submit
         </button>
       </form>
@@ -49,15 +50,15 @@
           <label>
             Date
             <input type="text" class="input-orders-date" id="js-input-orders-date" for="update-date-orders" />
-            <button class="orders-date-btn" id="js-orders-date-btn">
+            <button class="btn orders-date-btn" id="js-orders-date-btn">
             Submit
             </button>
           </label>
           <table class="all-orders-table">
               <tr>
-                <th id="js-all-orders-date" colspan="2">Date</th>
+                <th id="js-all-orders-date" colspan="2">Room Service Orders</th>
               </tr>
-              <tr>
+              <tr class="table-heading">
                 <td>Food</td>
                 <td>Total</td>
               </tr>
@@ -66,11 +67,13 @@
           </table>
         </div>
         <div class="orders-content" id="js-orders-customer">
+          <div class="orders-content-left">
+            <p class="customer-total"><span id="js-orders-name"></span> spent a total of: $<span id="js-orders-total"></span></p>
           <table class="customer-orders-table">
             <tr>
-              <th id="js-customer-orders-date" colspan="2">Date</th>
+              <th id="js-customer-orders-date" colspan="3">Current/Past Orders</th>
             </tr>
-            <tr>
+            <tr class="table-heading">
               <td>Date</td>
               <td>Food</td>
               <td>Total</td>
@@ -78,12 +81,12 @@
             <tbody class="orders-table" id="js-customer-orders-table">
             </tbody>
           </table>
-          <p><span id="js-customer-name-orders"></span> spent a total of $<span id="js-orders-total"></span></p>
+          </div>
           <table class="orders-menu-table">
             <tr>
               <th id="js-customer-orders-menu" colspan="2">Menu</th>
             </tr>
-            <tr>
+            <tr class="table-heading">
               <td>Food</td>
               <td>Total</td>
               <td></td>
@@ -97,18 +100,19 @@
         <div class="rooms-content" id="js-rooms-all">
           <p><span id="js-popular-booking-date"></span> most popular booking date</p>
           <p><span id="js-most-available-date"></span> most rooms available</p>
+          <div class="rooms-content-bottom">
           <label>
             Date
             <input type="text" class="input-rooms-date" id="js-input-rooms-date" for="update-date-rooms" />
-            <button class="rooms-date-btn" id="js-rooms-date-btn">
+            <button class=" btn rooms-date-btn" id="js-rooms-date-btn">
             Submit
             </button>
           </label>
           <table class="all-available-table" id="js-all-available-table">
             <tr>
-              <th id="js-available-date" colspan="6">Date</th>
+              <th id="js-available-date" colspan="6">Available Rooms</th>
             </tr>
-            <tr>
+            <tr class="table-heading">
               <td>Number</td>
               <td>Room Type</td>
               <td>Bidet</td>
@@ -119,17 +123,20 @@
             <tbody id="js-available-date-table">
             </tbody>
           </table>
+          </div>
         </div>
-        <div class="rooms-content" id="js-rooms-customer">
+        <div class="rooms-content-customer" id="js-rooms-customer">
           <table class="customer-bookings-table" >
-            <tr>
+            <tr class="table-heading">
               <td>Date</td>
               <td>Room Number</td>
             </tr>
             <tbody id="js-customer-bookings-table">
             </tbody>
           </table>
+          <div class="rooms-content-right">
           <form action="customer-available-filter" id="js-customer-available-filter">
+            <p class="room-type-filter" for="filter-rooms">Select Room Type:</p>
             <input type="radio" name="roomType" value="suite" id="suite">Suite<br>
             <input type="radio" name="roomType" value="residential suite" id="residential suite">Residential Suite<br>
             <input type="radio" name="roomType" value="junior suite" id="junior suite">Junior Suite<br>
@@ -139,32 +146,34 @@
             <tr>
               <th id="js-customer-available-date" colspan="6">Rooms Available Today</th>
             </tr>
-            <tr>
+            <tr class="table-heading">
               <td>Number</td>
               <td>Room Type</td>
               <td>Bidet</td>
               <td>Bed Size</td>
               <td>Num of Beds</td>
               <td>Cost per Night</td>
+              <td></td>
             </tr>
             <tbody id="js-available-table">
             </tbody>
           </table>
+          </div>
         </div>
       </section>
       <section class="content" id="js-customer-content" style="display: none">
         <form class="customer" id="js-customer-form">
-          <label>
+          <label class="customer">
             Find Customer
             <input type="text" class="input-customer-existing" id="js-input-customer-existing" for="find-existing-customer" />
           </label>
           <ul class="customers-list" id="js-customers-list">
           </ul>
-          <label>
+          <label class="customer">
             Create Customer
             <input type="text" class="input-customer-new" id="js-input-customer-new" for="create-new-customer" />
           </label>
-          <button class="new-customer-btn" id="js-new-customer-btn">
+          <button class=" btn new-customer-btn" id="js-new-customer-btn">
             Submit
           </button>
       </section>

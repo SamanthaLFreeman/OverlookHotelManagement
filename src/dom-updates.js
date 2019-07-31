@@ -2,6 +2,11 @@ import $ from 'jquery';
 
 let domUpdates = {
 
+  fixDate(date) {
+    let splitDate = date.split('-');
+    return `${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
+  },
+
   findCurrentDate() {
     let today = new Date();
     let day = String(today.getDate()).padStart(2, '0');

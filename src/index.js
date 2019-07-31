@@ -71,11 +71,12 @@ $('#js-orders-btn').on('click', () => {
 });
 
 $('#js-orders-date-btn').on('click', () => {
-  let date = $('#js-input-orders-date').val();
+  let date = $('#js-input-orders-date').val()
+  let fixedDate = domUpdates.fixDate(date);
   $('#js-all-orders-table').html('');
   $('.all-orders-table').show();
   hotel.createRoomServices();
-  let ordersByDate = hotel.roomServices.findAllOrders(date);
+  let ordersByDate = hotel.roomServices.findAllOrders(fixedDate);
   domUpdates.addRowsForAllOrders(ordersByDate);
 });
 
@@ -107,7 +108,8 @@ $('#js-rooms-btn').on('click', () => {
 
 $('#js-rooms-date-btn').on('click', () => {
   let date = $('#js-input-rooms-date').val();
-  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(date);
+  let fixedDate = domUpdates.fixDate(date);
+  let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(fixedDate);
   domUpdates.addRowsForAllAvailableRooms(roomsAvailData);
 });
 

@@ -5,9 +5,8 @@ const expect = chai.expect;
 import Customer from '../src/Customer';
 import Hotel from '../src/Hotel';
 import domUpdates from '../src/dom-updates';
-import bookings from '../src/data/bookings-data';
 import rooms from '../src/data/rooms-data';
-import roomServices from '../src/data/roomServices-data';
+
 import users from '../src/data/users-data';
 
 chai.spy.on(domUpdates, ['addRoomBill', 'addRoomService'], () => { });

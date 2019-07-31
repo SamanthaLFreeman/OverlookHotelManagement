@@ -38,12 +38,13 @@ class Hotel {
     return bookedRooms.reduce((sum, room) => {
       sum += room.costPerNight;
       return sum;
-    }, roomServiceToday)
+    }, roomServiceToday).toFixed(2);
   }
 
   findPercentageRoomsOccupied(today) {
     let bookingsToday = this.findBookedRoomsforToday(today);
-    return (bookingsToday.length / this.roomsData.length) * 100;
+    let percent = (bookingsToday.length / this.roomsData.length) * 100;
+    return percent.toFixed(2);
   }
 
   filterCustomerData(data, id) {

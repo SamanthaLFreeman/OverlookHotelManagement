@@ -67,7 +67,7 @@ $('#js-orders-btn').on('click', () => {
   let menuList = hotel.roomServices.findAvailableSandwiches(today);
   domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
   domUpdates.totalOrdersForCustomers( hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
-  domUpdates.addRowsForMenu(menuList)
+  domUpdates.addRowsForMenu(menuList);
 });
 
 $('#js-orders-date-btn').on('click', () => {
@@ -93,7 +93,8 @@ $('#js-rooms-btn').on('click', () => {
   domUpdates.checkForCustomerOrAll('rooms');
   $('.content').hide();
   $('#js-rooms-content').show();
-  $('#js-customer-available-table').hide()
+  $('#js-customer-available-table').hide();
+  $('#js-change-to-orders-btn').hide();
   $('.btn').attr('disabled', false);
   $('#js-rooms-btn').attr('disabled', true);
   $('#js-all-available-table').hide();
@@ -152,6 +153,7 @@ $('#js-customer-available-table').on('click', (e) => {
   let filteredTypes = domUpdates.filterByRoomType(updatedData, target)
   domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);
   hotel.currentCustomer.createSelectedBooking(today, num);
+  $('#js-change-to-orders-btn').show();
 })
 
 $('#js-new-customer-btn').on('click', (e) => {
@@ -161,3 +163,19 @@ $('#js-new-customer-btn').on('click', (e) => {
   $('#js-customer-name').html(newName);
   $('#js-input-customer-new').val('');
 });
+
+$('#js-change-to-orders-btn').on('click', () => {
+  domUpdates.checkForCustomerOrAll('orders');
+  $('.all-orders-table').hide();
+  $('.content').hide();
+  $('#js-orders-content').show();
+  $('.btn').attr('disabled', false);
+  $('#js-orders-btn').attr('disabled', true);
+  hotel.createRoomServices();
+  let ordersByDate = hotel.roomServices.findAllOrders(today);
+  domUpdates.addRowsForAllOrders(ordersByDate);
+  let menuList = hotel.roomServices.findAvailableSandwiches(today);
+  domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
+  domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
+  domUpdates.addRowsForMenu(menuList);
+})

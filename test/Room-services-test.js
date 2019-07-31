@@ -24,6 +24,6 @@ describe('Roomservices', () => {
 
   it('should find list of available food options and prices', () => {
     expect(roomservices.filterSandwiches().length).to.eql(18);
-  })
+  });
 
 });

@@ -40,32 +40,25 @@ let domUpdates = {
       "Saturday"
     ];
     let currentDate = new Date();
-    let displayDate =
-    days[currentDate.getDay()] +
-    " - " +
-    months[currentDate.getMonth()] +
-    " " +
-    currentDate.getDate() +
-    ", " +
-    currentDate.getFullYear();
-    return displayDate;
+    return `${days[currentDate.getDay()]} -
+    ${months[currentDate.getMonth()]} ${currentDate.getDate()},${currentDate.getFullYear()}`;
   },
 
   addCustomersList(customers) {
     $('.customers-list').html('');
     customers.forEach(customer => {
-      $('.customers-list').append(`<li class="pointer customer-bullet" id="${customer.id}">${customer.name}</li>`)
+      $('.customers-list').append(`<li class="pointer customer-bullet" id="${customer.id}">${customer.name}</li>`);
     })
   },
 
   addFoundCustomer(customer) {
-    $('#js-customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`)
+    $('#js-customers-list').append(`<li class="customer-bullet" id="${customer.id}">${customer.name}</li>`);
   },
 
   clickOnUser(pickedCustomer) {
     let id = pickedCustomer.id;
     let name = $(`#${id}`).html();
-    $('#js-customer-name').html(name)
+    $('#js-customer-name').html(name);
   },
   
   addRowsForAllOrders(roomServiceData) {
@@ -75,7 +68,7 @@ let domUpdates = {
           <td>${data.food}</td>
           <td>$${data.totalCost}</td>
         </tr>`)
-    })
+    });
   },
 
   addRowsForCustomerOrders(roomServiceData) {
@@ -86,7 +79,7 @@ let domUpdates = {
           <td>${data.food}</td>
           <td>$${data.totalCost}</td>
         </tr>`)
-    })
+    });
   },
 
   checkForCustomerOrAll(tabName) {
@@ -117,7 +110,7 @@ let domUpdates = {
           <td>${data.numBeds}</td>
           <td>$${data.costPerNight}</td>
         </tr>`)
-    })
+    });
   },
 
   addRowsForCustomersBookings(bookingsData) {
@@ -128,7 +121,7 @@ let domUpdates = {
           <td>${data.date}</td>
           <td>${data.roomNumber}</td>
         </tr>`)
-    })
+    });
   },
 
   addRowsForCustomerAvailableRooms(roomsAvailData) {
@@ -145,7 +138,7 @@ let domUpdates = {
           <td id="costPerNight">$${data.costPerNight}</td>
           <td>Add</td>
         </tr>`)
-    })
+    });
   },
 
   addRoomBill(listOfRooms) {
@@ -156,7 +149,7 @@ let domUpdates = {
           <td>${data.date}</td>
           <td>${data.roomNumber}</td>
         </tr>`)
-    })
+    });
   },
 
   addRoomService(roomServiceList) {
@@ -168,11 +161,11 @@ let domUpdates = {
           <td>${data.food}</td>
           <td>$${data.totalCost}</td>
         </tr>`)
-    })
+    });
   },
 
   filterByRoomType(roomsAvail, type) {
-    return roomsAvail.filter(room => room.roomType === type)
+    return roomsAvail.filter(room => room.roomType === type);
   },
 
   addRowsForMenu(listOfFood) {
@@ -184,7 +177,7 @@ let domUpdates = {
           <td>$${data.totalCost}</td>
           <td>Add</td>
         </tr>`)
-    })
+    });
   },
 
 }

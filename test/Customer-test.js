@@ -6,11 +6,9 @@ import Customer from '../src/Customer';
 import Hotel from '../src/Hotel';
 import domUpdates from '../src/dom-updates';
 import rooms from '../src/data/rooms-data';
-
 import users from '../src/data/users-data';
 
 chai.spy.on(domUpdates, ['addRoomBill', 'addRoomService'], () => { });
-
 
 describe('Customer', () => {
   let customer;

@@ -1,39 +1,36 @@
 let hotel;
 
-// let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
-//   .then(response => response.json())
+let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+  .then(response => response.json())
 
-// let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
-//   .then(response => response.json())
+let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+  .then(response => response.json())
 
-// let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
-//   .then(response => response.json())
+let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+  .then(response => response.json())
 
-// let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
-//   .then(response => response.json())
+let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+  .then(response => response.json())
 
 import bookings from '../src/data/bookings-data';
 import rooms from '../src/data/rooms-data';
 import roomServices from '../src/data/roomServices-data';
 import users from '../src/data/users-data';
 
-// Promise.all([usersData, bookingsData, roomServiceData, roomsData])
-//   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
-//   .catch(error => console.log(error))
+Promise.all([usersData, bookingsData, roomServiceData, roomsData])
+  .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
+  .catch(error => console.log(error))
 
 import $ from 'jquery';
 import domUpdates from './dom-updates';
 import Hotel from '../src/Hotel'
 import './css/base.scss';
 
-// img link to it in the index.html
-// import './images/turing-logo.png'
 let today = domUpdates.findCurrentDate();
 $('#js-date').html(domUpdates.displayCurrentDate());
 $('#js-customer-name').html();
 
 $('#js-username-btn').on('click', (e) => {
-  hotel = new Hotel(users, bookings, roomServices, rooms)
   e.preventDefault();
   $('#js-login').hide();
   $('#js-main-content').show();
@@ -88,7 +85,7 @@ $('#js-menu-table').on('click', (e) => {
   domUpdates.addRowsForMenu(foodAvail);
   hotel.currentCustomer.createSelectedRoomService(today, food, price);
   domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
-})
+});
 
 $('#js-rooms-btn').on('click', () => {
   domUpdates.checkForCustomerOrAll('rooms');
@@ -118,7 +115,7 @@ $('#js-customer-available-filter').on('click', (e) => {
   let roomsAvailData = hotel.rooms.findTheAvailabilityForADate(today);
   let filteredTypes = domUpdates.filterByRoomType(roomsAvailData, target);
   domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);
-})
+});
 
 $('#js-customer-btn').on('click', () => {
   $('.content').hide();
@@ -156,7 +153,7 @@ $('#js-customer-available-table').on('click', (e) => {
   domUpdates.addRowsForCustomerAvailableRooms(filteredTypes);
   hotel.currentCustomer.createSelectedBooking(today, num);
   $('#js-change-to-orders-btn').show();
-})
+});
 
 $('#js-new-customer-btn').on('click', (e) => {
   e.preventDefault();
@@ -180,4 +177,4 @@ $('#js-change-to-orders-btn').on('click', () => {
   domUpdates.addRowsForCustomerOrders(hotel.currentCustomer.sortDateRoomServices());
   domUpdates.totalOrdersForCustomers(hotel.currentCustomer.name, hotel.currentCustomer.totalSpentOnRoomServices());
   domUpdates.addRowsForMenu(menuList);
-})
+});

@@ -35,16 +35,17 @@ class Hotel {
     let bookedRooms = bookingsToday.map(num => {
       return this.roomsData.filter(room => room.number === num);
     }).flat();
-    return bookedRooms.reduce((sum, room) => {
+    let total = bookedRooms.reduce((sum, room) => {
       sum += room.costPerNight;
       return sum;
-    }, roomServiceToday).toFixed(2);
+    }, roomServiceToday)
+    return parseFloat(total.toFixed(2));
   }
 
   findPercentageRoomsOccupied(today) {
     let bookingsToday = this.findBookedRoomsforToday(today);
     let percent = (bookingsToday.length / this.roomsData.length) * 100;
-    return percent.toFixed(2);
+    return parseFloat(percent.toFixed(2));
   }
 
   filterCustomerData(data, id) {

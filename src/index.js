@@ -49,6 +49,9 @@ $('#js-main-btn').on('click', () => {
   $('#js-main-content').show();
   $('.btn').attr('disabled', false);
   $('#js-main-btn').attr('disabled', true);
+  $('#js-room-avail').html(hotel.calculateAvailableRoomsforToday(today));
+  $('#js-today-total-rev').html(hotel.calculateTotalRevenueToday(today));
+  $('#js-percent-occup').html(hotel.findPercentageRoomsOccupied(today));
 });
 
 $('#js-orders-btn').on('click', () => {

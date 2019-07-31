@@ -12,11 +12,6 @@ let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/boo
 let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
   .then(response => response.json())
 
-import bookings from '../src/data/bookings-data';
-import rooms from '../src/data/rooms-data';
-import roomServices from '../src/data/roomServices-data';
-import users from '../src/data/users-data';
-
 Promise.all([usersData, bookingsData, roomServiceData, roomsData])
   .then(data => hotel = new Hotel(data[0].users, data[1].bookings, data[2].roomServices, data[3].rooms))
   .catch(error => console.log(error))
